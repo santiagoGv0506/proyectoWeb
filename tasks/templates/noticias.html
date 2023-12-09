@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/noticias.css" media="screen">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body class="body-background">
+    <nav class="navbar navbar-expand-lg bg-propio">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img src="../static/media/imagen_navbar.jpg" alt="LogoJuego" width="200px" height="60px">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item centro">
+                        <a class="nav-link mx-2" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item centro">
+                        <a class="nav-link mx-2" href="./noticias.html">News</a>
+                    </li>
+                    <li class="nav-item centro">
+                        <a class="nav-link mx-2" href="./foro.html">Foro</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <div class="nav-link" id="username-container"></div>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <button id="logout-button" class="btn btn-danger" style="margin-top: 10px;" href="/logout">Cerrar Sesión</button>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="/signin">Sign in</a>
+                    </li>
+                    <li class="nav-item registro">
+                        <a id="sign-in-button" class="nav-link registro" href="/signup">Sign up</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="noticias">
+        <article class="noticia-destacada">
+            <h2>Se pausa el desarrollo</h2>
+            <p>Fecha de publicación: 3 de noviembre de 2023</p>
+            <p>Despues de una larga discucion y ante algunas problematicas el equipo de desarrollo al cargo del proyecto en digital sprout a tomado la desicion de pausar temporalmente el desarrollo del videojuego...</p>
+            <a href="#">Leer más</a>
+        </article>
+
+        <article class="noticia">
+            <h2>El futuro del videojuego</h2>
+            <p>Fecha de publicación: 10 de octubre de 2023</p>
+            <p>Conoce cuales son los siguientes pasos que vamos a seguir en el desarrollo del juego y que nos depara en el futuro...</p>
+            <a href="">Leer más</a>
+        </article>
+
+        <article class="noticia">
+            <h2>Lanzamiento alpha 0</h2>
+            <p>Fecha de publicación: 25 de septiembre de 2023</p>
+            <p>La primera version alpha del juego esta disponible para su prueba, conoce acerca de lo que necesita saber de esta version...</p>
+            <a href="">Leer más</a>
+        </article>
+    </section>
+</body>
+
+<script src="../static/JS/noticias.js"></script>
+</html>
