@@ -4,14 +4,15 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-from .forms import NotasForm
-from .models import Notas
+from django.template import loader
 
 # Create your views here.
 
 
 def index(request):
-    return render(request, 'index.html')
+    template = loader.get_template("index.html")
+    context = {}
+    return HttpResponse(template.render(context,request))
 
 
 def signup(request):
@@ -28,7 +29,7 @@ def signup(request):
                                                 password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('notas')
+                return redirect('index')
             except IntegrityError:
                 return render(request, 'signup.html', {
                     'form': UserCreationForm, "Error": 'Ya existe el usuario.'
@@ -55,4 +56,4 @@ def signin(request):
             })
         else:
             login(request, user)
-            return redirect('notas')
+            return redirect('index')
