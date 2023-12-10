@@ -3,7 +3,7 @@
 
 {% block extrahead %} 
 <title>Foro</title>
-<link rel="stylesheet" type="text/css" href="../static/css/foro.css" >
+<link rel="stylesheet" type="text/css" href="{% static 'css/foro.css' %}" >
 {% endblock extrahead%}
 
 {% block content %}
@@ -19,9 +19,9 @@
         {% for tema in temas %}
         <div class="card mb-3">
             <div class="card-body">
-                <h5 class="card-title">{{ TemaForo.titulo }}</h5>
-                <p class="card-text">{{ TemaForo.mensaje }}</p>
-                {% if user.is_authenticated and user == TemaForo.autor %}
+                <h5 class="card-title">{{ tema.titulo }}</h5>
+                <p class="card-text">{{ tema.mensaje }}</p>
+                {% if user.is_authenticated and user == tema.autor %}
                     <a href="{% url 'editar_tema' tema.id %}" class="btn btn-warning">Editar Tema</a>
                     <a href="{% url 'eliminar_tema' tema.id %}" class="btn btn-danger">Eliminar Tema</a>
                 {% endif %}
@@ -31,5 +31,4 @@
         {% endfor %}
     </div>
 
-    {% endblock content%}
-</html>
+{% endblock content%}

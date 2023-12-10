@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.template import loader
+from django.db import IntegrityError
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
-from django.db import IntegrityError
-from django.template import loader
-from django.contrib.auth.decorators import login_required
 from .models import TemaForo
 from .forms import TemaForoForm
 
@@ -23,8 +23,7 @@ def noticias(request):
 def foro(request):
     return render(request, 'foro.html')
 
-def nuevoTema(request):
-    return render(request, 'nuevo_tema.html')
+
 
 def signup(request):
 
@@ -69,6 +68,11 @@ def signin(request):
             login(request, user)
             return redirect('index')
         
+@login_required
+def temas(request):
+    temas = TemaForo.objects.all()
+    return render(request, 'foro.html', {'temas': temas})
+
 
 def nuevoTema(request):
     if request.method == 'GET':
@@ -80,7 +84,7 @@ def nuevoTema(request):
                 new_tema = form.save(commit=False)
                 new_tema.autor = request.user
                 new_tema.save()
-                return redirect('foro')
+                return redirect('temas')
             else:
                 return render(request, 'nuevo_tema.html', {'form': form, 'Error': 'Ingrese datos válidos'})
         except ValueError:

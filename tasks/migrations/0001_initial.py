@@ -13,26 +13,16 @@ class Migration(migrations.Migration):
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
+
     operations = [
         migrations.CreateModel(
             name='Tema',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('titulo', models.CharField(max_length=255)),
-                ('mensaje', models.TextField()),
+                ('mensaje', models.TextField(default='')),
                 ('fecha_creacion', models.DateTimeField(auto_now_add=True)),
                 ('autor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Notas',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=150)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('datecompleted', models.DateTimeField(null=True)),
-                ('nota', models.FloatField(default=0.0)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
