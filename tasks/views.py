@@ -13,6 +13,12 @@ from .models import Notas
 def index(request):
     return render(request, 'index.html')
 
+def noticias(request):
+    return render(request, 'noticias.html')
+
+
+
+
 
 def signup(request):
 
