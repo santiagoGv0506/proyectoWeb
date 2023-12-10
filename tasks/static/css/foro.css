@@ -73,7 +73,7 @@ nav.bg-propio ul li.registro{
 }
 
 .body-background {
-    background-image: url('../MEDIA/fondo_noticias.png');
+    background-image: url('../media/fondo_noticias.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -82,13 +82,13 @@ nav.bg-propio ul li.registro{
 }
 
 .titulo-foro {
-    color: rgb(7, 0, 0); /* Color del texto */
+    color: rgb(255, 255, 255); /* Color del texto */
     border: 1px solid rgba(255, 255, 255, 0.2); /* Borde suave transparente (blanco con 20% de opacidad) */
     padding: 10px; /* Espaciado interno */
 }
 
 .titulo-blanco {
-    color: rgb(10, 3, 3);
+    color: rgb(255, 255, 255);
 }
 
 

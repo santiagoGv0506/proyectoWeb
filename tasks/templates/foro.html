@@ -7,28 +7,29 @@
 {% endblock extrahead%}
 
 {% block content %}
-
-    <div class="container mt-4">
-        <h2 class="titulo-foro">Foro</h2>
-        <div class="d-flex mb-3">
-            <a href="./foro.html" class="btn btn-light mx-2">Ultimo</a>
-            {% if user.is_authenticated %}
-            <a href="/nuevoTema" class="btn btn-light mx-2">Nuevo</a>
-            {% endif %}
-        </div> 
-        {% for tema in temas %}
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{{ tema.titulo }}</h5>
-                <p class="card-text">{{ tema.mensaje }}</p>
-                {% if user.is_authenticated and user == tema.autor %}
-                    <a href="{% url 'editar_tema' tema.id %}" class="btn btn-warning">Editar Tema</a>
-                    <a href="{% url 'eliminar_tema' tema.id %}" class="btn btn-danger">Eliminar Tema</a>
+    <div class="body-background">
+        <div class="container mt-4">
+            <h2 class="titulo-foro">Foro</h2>
+            <div class="d-flex mb-3">
+                <a href="./foro.html" class="btn btn-light mx-2">Ultimo</a>
+                {% if user.is_authenticated %}
+                <a href="/nuevoTema" class="btn btn-light mx-2">Nuevo</a>
                 {% endif %}
-                <a href="#" class="btn btn-primary">Ver Tema</a>
+            </div> 
+            {% for tema in temas %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tema.titulo }}</h5>
+                    <p class="card-text">{{ tema.mensaje }}</p>
+                    {% if user.is_authenticated and user == tema.autor %}
+                        <a href="{% url 'editar_tema' tema.id %}" class="btn btn-warning">Editar Tema</a>
+                        <a href="{% url 'eliminar_tema' tema.id %}" class="btn btn-danger">Eliminar Tema</a>
+                    {% endif %}
+                    <a href="#" class="btn btn-primary">Ver Tema</a>
+                </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 
 {% endblock content%}
