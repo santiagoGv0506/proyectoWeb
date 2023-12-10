@@ -100,7 +100,7 @@ nav.bg-propio ul li.registro{
 }
 
 .body-background {
-    background-image: url('../MEDIA/fondo_noticias.png');
+    background-image: url('../media/fondo_noticias.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -3,11 +3,16 @@
 
 {% block extrahead %} 
 <title>Inicio</title>
-<link rel="stylesheet" href="{% static '/css/index.css' %}" >
+<link rel="stylesheet" type="text/css" href="../static/css/index.css" media="screen">
 {% endblock extrahead%}
 
 {% block content %}
 <div class="overlay-container">
+    <div class="video-container">
+        <video autoplay muted loop class="video-fondo">
+            <source src="../static/media/video_portada.mp4" type="video/mp4">
+        </video>
+    </div>
     <div class="container">
         <div class="contenido">
             <h2>xenofurious-sabotage</h2>
@@ -20,4 +25,5 @@
         </div>
     </div>
 </div>
+
 {% endblock content%}
