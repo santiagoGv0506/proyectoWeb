@@ -14,6 +14,12 @@ def index(request):
     context = {}
     return HttpResponse(template.render(context,request))
 
+def noticias(request):
+    return render(request, 'noticias.html')
+
+
+
+
 
 def signup(request):
 
