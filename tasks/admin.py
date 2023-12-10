@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Notas
+from .models  import TemaForo
 
 
-class NotasAdmin(admin.ModelAdmin):
-    readonly_fields= ("created", )
+class TemasAdmin(admin.ModelAdmin):
+    readonly_fields= ("fecha_creacion", )
 
 # Register your models here.
-admin.site.register(Notas, NotasAdmin)
+admin.site.register(TemaForo, TemasAdmin)

@@ -26,7 +26,8 @@ urlpatterns = [
     path('signin/', views.signin, name='signin'),
     path('index/', views.index, name='index'),
     path('noticias/', views.noticias, name='noticias'),
-    path('foro/', views.foro, name='foro'),
+    path('foro/', views.temas, name='temas'),
+    
     path('nuevoTema/', views.nuevoTema, name='nuevoTema'),
     path('editar_tema/<int:tema_id>/', views.editarTema, name='editar_tema'),
     path('eliminar_tema/<int:tema_id>/', views.eliminarTema, name='eliminar_tema'),
