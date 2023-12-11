@@ -5,6 +5,28 @@
     --fondo: #0f1519;
 }
 
+nav.bg-propio ul li.login {
+    margin-left: 400px;
+    margin-right: 10px; /* Ajusta el margen derecho según tus preferencias */
+    display: block;
+    padding: 12px;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    color: white;
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+nav.bg-propio ul li.registro {
+    display: block;
+    padding: 10px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    color: white;
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
 nav.bg-propio{
     background:var(--fondo);
 
@@ -167,6 +189,7 @@ nav.bg-propio ul li.registro{
     text-align: center;
     margin-top: 10px;
 }
+
 
 
 

@@ -99,3 +99,25 @@ nav.bg-propio ul li.registro{
 
 }
 
+nav.bg-propio ul li.registro {
+    display: block;
+    padding: 10px;
+    padding-left: 8px !important;
+    padding-right: 5px !important;
+    color: white;
+    background: var(--primary-color);
+    border-radius: 10px;
+    margin-right: 5px; /* Ajusta el margen derecho según tus preferencias */
+}
+
+nav.bg-propio ul li.login {
+    margin-left: 400px;
+    margin-right: 10px;
+    display: block;
+    padding: 12px;
+    padding-left: 12px !important;
+    padding-right: 18px !important;
+    color: white;
+    background: var(--primary-color);
+    border-radius: 10px;
+}

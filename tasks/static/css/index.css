@@ -160,8 +160,5 @@ button {
     transition: background-color 0.3s ease;
 }
 
-.button:hover {
-    background-color: #2d5cbf; /* Cambia el color al pasar el ratón sobre el enlace */
-}
 
 
