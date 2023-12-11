@@ -7,5 +7,7 @@ class TemaForoForm(forms.ModelForm):
         model = TemaForo
         fields = ['titulo', 'mensaje']
         widgets = {
+            'titulo': forms.TextInput(attrs={'class': 'campo-blanco'}),
+            'mensaje': forms.Textarea(attrs={'class': 'campo-blanco'}),
             'fecha_creacion': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
         }

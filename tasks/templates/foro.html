@@ -11,7 +11,6 @@
         <div class="container mt-4">
             <h2 class="titulo-foro">Foro</h2>
             <div class="d-flex mb-3">
-                <a href="./foro.html" class="btn btn-light mx-2">Ultimo</a>
                 {% if user.is_authenticated %}
                 <a href="/nuevoTema" class="btn btn-light mx-2">Nuevo</a>
                 {% endif %}
@@ -20,12 +19,12 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ tema.titulo }}</h5>
+                    <h6 class="card-title">autor: {{ tema.autor }}</h6>
                     <p class="card-text">{{ tema.mensaje }}</p>
                     {% if user.is_authenticated and user == tema.autor %}
-                        <a href="{% url 'editar_tema' tema.id %}" class="btn btn-warning">Editar Tema</a>
-                        <a href="{% url 'eliminar_tema' tema.id %}" class="btn btn-danger">Eliminar Tema</a>
+                        <a href="{% url 'editar_tema' tema.id %}" class="btn btn-info">Editar</a>
+                        <a href="{% url 'eliminar_tema' tema.id %}" class="btn btn-danger">Eliminar</a>
                     {% endif %}
-                    <a href="#" class="btn btn-primary">Ver Tema</a>
                 </div>
             </div>
             {% endfor %}

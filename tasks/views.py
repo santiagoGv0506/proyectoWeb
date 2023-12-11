@@ -60,7 +60,7 @@ def signin(request):
     else:
         user = authenticate(request, username = request.POST['username'], password=request.POST['password'])
         if user is None:
-            return render(request,'signinota=models.CharField(max_length=3)n.html',{
+            return render(request,'signinota=models.CharField(max_length=30)n.html',{
                 'form':AuthenticationForm,
                 'Error':'Usuario o contrasena incorrecto '
             })
@@ -68,7 +68,6 @@ def signin(request):
             login(request, user)
             return redirect('index')
         
-@login_required
 def temas(request):
     temas = TemaForo.objects.all()
     return render(request, 'foro.html', {'temas': temas})
@@ -91,26 +90,22 @@ def nuevoTema(request):
             return render(request, 'nuevo_tema.html', {'form': TemaForoForm(), 'Error': 'Ingrese datos válidos'})
         
 
-@login_required
+
+def eliminarTema(request, tema_id):
+    temas = TemaForo.objects.filter(id=tema_id, autor=request.user)
+    if temas.exists():
+        temas.delete()
+    return redirect('temas')
+
 def editarTema(request, tema_id):
     tema = get_object_or_404(TemaForo, id=tema_id, autor=request.user)
-    
+
     if request.method == 'POST':
         form = TemaForoForm(request.POST, instance=tema)
         if form.is_valid():
             form.save()
-            return redirect('foro')
+            return redirect('temas')
     else:
         form = TemaForoForm(instance=tema)
 
-    return render(request, 'editar_tema.html', {'form': form, 'tema': tema})
-
-@login_required
-def eliminarTema(request, tema_id):
-    tema = get_object_or_404(TemaForo, id=tema_id, autor=request.user)
-
-    if request.method == 'POST':
-        tema.delete()
-        return redirect('foro')
-
-    return render(request, 'eliminar_tema.html', {'tema': tema})
+    return render(request, 'editarTema.html', {'form': form, 'tema': tema})
